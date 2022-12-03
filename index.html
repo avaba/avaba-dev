@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="site">
-      <header class="header">
+      <header id="home" class="header">
         <div class="container">
           <div class="header__wrap">
             <div class="header__left">
@@ -29,12 +29,18 @@
 
             <nav class="header__right">
               <ul class="header__menu">
-                <li class="header__menu_item"><a href="#">Home</a></li>
-                <li class="header__menu_item"><a href="#">About me</a></li>
-                <li class="header__menu_item"><a href="#">Portfolio</a></li>
-                <li class="header__menu_item"><a href="#">Contact</a></li>
+                <li class="header__menu_item"><a href="#home">Home</a></li>
+                <li class="header__menu_item"><a href="#about">About me</a></li>
+                <li class="header__menu_item">
+                  <a href="#worksSection">Portfolio</a>
+                </li>
+                <li class="header__menu_item"><a href="#footer">Contact</a></li>
               </ul>
             </nav>
+
+            <button class="header__mobile">
+              <img class="header__mobile_icon" src="./image/menu.svg" alt="" />
+            </button>
           </div>
         </div>
       </header>
@@ -55,7 +61,7 @@
                 maybe a turnkey website? Then contact me
               </p>
 
-              <a href="#" class="btn">Contact me</a>
+              <button class="btn onModal">Contact me</button>
             </div>
 
             <div class="home__right">
@@ -69,7 +75,7 @@
         </div>
       </section>
 
-      <section class="about">
+      <section id="about" class="about">
         <div class="container">
           <div class="scills">
             <div class="scills__item">
@@ -105,6 +111,13 @@
           <div class="aboutMe">
             <div class="aboutMe__body">
               <h2 class="aboutMe__body_title">About me</h2>
+
+              <img
+                class="aboutMe__body_mobileImg"
+                src="./image/me-top.png"
+                alt=""
+              />
+
               <p class="aboutMe__body_text">
                 Hello again everyone! So, you already know that my name is Gleb.
                 A little about myself: student, 18 y.o., athlete-football
@@ -143,7 +156,7 @@
         </div>
       </section>
 
-      <section class="worksSection">
+      <section id="worksSection" class="worksSection">
         <div class="container">
           <h2 class="worksSection__title">Portfolio</h2>
 
@@ -232,22 +245,24 @@
         </div>
       </section>
 
-      <footer class="footer">
+      <footer id="footer" class="footer">
         <div class="container">
           <div class="footer__wrap">
             <div class="footer__col">
               <ul class="footer__links">
                 <li class="footer__links_item">
-                  <a class="footer__links_link" href="#">Home</a>
+                  <a class="footer__links_link" href="#home">Home</a>
                 </li>
                 <li class="footer__links_item">
-                  <a class="footer__links_link" href="#">About me</a>
+                  <a class="footer__links_link" href="#about">About me</a>
                 </li>
                 <li class="footer__links_item">
-                  <a class="footer__links_link" href="#">Portfolio</a>
+                  <a class="footer__links_link" href="#worksSection"
+                    >Portfolio</a
+                  >
                 </li>
                 <li class="footer__links_item">
-                  <a class="footer__links_link" href="#">Contact</a>
+                  <a class="footer__links_link" href="#footer">Contact</a>
                 </li>
               </ul>
             </div>
@@ -273,15 +288,27 @@
                   <img src="./image/logo.svg" alt="" />
                   <span>Portfolio</span>
                 </div>
-                <button class="footer__top">
+                <a href="#home" class="footer__top">
                   <img src="./image/arrow-top.svg" alt="" />
-                </button>
+                </a>
               </div>
               <p class="footer__copy">Copyright © 2021, Notitanic</p>
             </div>
           </div>
         </div>
       </footer>
+
+      <div class="modal">
+        <div class="modal__wrap">
+          <img class="modal__close" src="./image/close.svg" alt="" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ullam
+            quasi quod rerum natus eum molestias voluptatem culpa. Animi sed
+            culpa tempora ipsum labore laboriosam et ab, odio accusantium
+            praesentium.
+          </p>
+        </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>

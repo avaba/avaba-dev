@@ -1,5 +1,6 @@
 @import url(./normalize.css);
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap');
+@import "mediaQuery";
 
 // colors
 $bgDark: #2A2A2A;
@@ -17,15 +18,42 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     color: $white;
+    min-width: 320px;
+
+    @media screen and (max-width: $xl) {
+        font-size: 16px;
+    }
 }
 
 #site {
     background: $bgDark;
+    overflow: hidden;
 }
 
 .container {
     max-width: 1350px;
     margin: 0 auto;
+    padding: 0 15px;
+
+    @media screen and (max-width: $xl) {
+        max-width: 1140px;
+    }
+
+    @media screen and (max-width: $lg) {
+        max-width: 960px;
+    }
+
+    @media screen and (max-width: $md) {
+        max-width: 720px;
+    }
+
+    @media screen and (max-width: $sm) {
+        max-width: 540px;
+    }
+
+    @media screen and (max-width: $xs) {
+        max-width: 100%;
+    }
 }
 
 a {
@@ -37,6 +65,8 @@ a {
     background: $orange;
     box-shadow: 0px 2px 13px rgba(226, 158, 0, 0.48);
     border-radius: 6px;
+    border: 0;
+    cursor: pointer;
     font-weight: 700;
     font-size: 18px;
     color: #000000;
@@ -59,6 +89,10 @@ a {
 
         &_img {
             margin-right: 10px;
+
+            @media screen and (max-width: $sm) {
+                height: 40px;
+            }
         }
     }
 
@@ -72,6 +106,19 @@ a {
         &_item {
             margin-right: 140px;
             position: relative;
+
+            @media screen and (max-width: $lg) {
+                margin-right: 40px;
+            }
+
+            @media screen and (max-width: $md) {
+                margin-right: 25px;
+                font-size: 14px;
+            }
+
+            @media screen and (max-width: $sm) {
+                display: none;
+            }
 
             &:hover {
                 &::before {
@@ -92,12 +139,33 @@ a {
             }
         }
     }
+
+    &__mobile {
+        background: transparent;
+        padding: 0;
+        border: 0;
+
+        @media screen and (min-width: $sm) {
+            display: none;
+        }
+
+        &_icon {
+            width: 40px;
+            height: 40px;
+        }
+    }
 }
 
 .home {
     min-height: 790px;
     max-height: 790px;
     height: 790px;
+
+    @media screen and (max-width: $lg) {
+        text-align: center;
+        max-height: none;
+        height: auto;
+    }
 
     .container {
         height: 100%;
@@ -108,6 +176,10 @@ a {
         align-items: center;
         justify-content: space-between;
         height: 100%;
+
+        @media screen and (max-width: $lg) {
+            flex-direction: column;
+        }
     }
 
     &__left {
@@ -138,6 +210,10 @@ a {
 
     &__image {
         margin-top: auto;
+
+        @media screen and (max-width: $lg) {
+            max-width: 100%;
+        }
     }
 }
 
@@ -153,6 +229,10 @@ a {
     justify-content: center;
     margin-bottom: 185px;
 
+    @media screen and (max-width: $lg) {
+        gap: 20px;
+    }
+
     &__item {
         width: calc(100% / 5);
         height: 270px;
@@ -163,11 +243,20 @@ a {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media screen and (max-width: $lg) {
+            height: 170px;
+            padding: 10px;
+        }
     }
 
     &__img {
         max-width: 145px;
         margin-top: auto;
+
+        @media screen and (max-width: $lg) {
+            max-width: 60px;
+        }
     }
 
     &__title {
@@ -176,6 +265,11 @@ a {
         color: #E4E4E4;
         margin-top: auto;
         padding-bottom: 50px;
+
+        @media screen and (max-width: $lg) {
+            font-size: 16px;
+            padding-bottom: 30px;
+        }
     }
 }
 
@@ -193,12 +287,28 @@ a {
         border-radius: 14px;
         padding: 51px 53px;
         width: 496px;
+
+        @media screen and (max-width: $lg) {
+            width: 100%;
+        }
+
+        &_mobileImg {
+            display: none;
+
+            @media screen and (max-width: $lg) {
+                display: block;
+            }
+        }
         
         &_title {
             font-weight: 400;
             font-size: 48px;
             margin: 0 0 21px 0;
             margin-top: -80px;
+
+            @media screen and (max-width: $lg) {
+                margin-top: 0;
+            }
         }
 
         &_text {
@@ -210,6 +320,10 @@ a {
             position: absolute;
             border: 29px solid $bgBox;
             border-radius: 14px;
+
+            @media screen and (max-width: $lg) {
+                display: none;
+            }
         }
 
         &_top {
@@ -317,7 +431,7 @@ a {
 
         &_img {
             margin-right: 40px;
-            width: 493px;
+            width: 50%;
             height: 500px;
             object-fit: contain;
             border-radius: 30px;
@@ -396,6 +510,9 @@ a {
         height: 60px;
         border-radius: 100%;
         background: $orange;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 0;
         border: 0;
         cursor: pointer;
@@ -411,5 +528,45 @@ a {
         margin: 0;
         margin-top: auto;
         margin-left: auto;
+    }
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        transition: all .2s;
+        pointer-events: all;
+    }
+
+    &__wrap {
+        background: #fff;
+        width: 600px;
+        max-width: 100%;
+        color: #000;
+        padding: 30px;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    &__close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
     }
 }
